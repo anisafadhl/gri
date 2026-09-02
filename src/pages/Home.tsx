@@ -446,7 +446,7 @@ export const Home: React.FC = () => {
             </div>
 
             <a
-              href="https://www.youtube.com/@GerejaRasuliIndonesia"
+              href="https://www.youtube.com/@bjrbesronjusuproni"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-bold text-[#8E7015] hover:text-[#C5A038] transition-colors group no-underline"
