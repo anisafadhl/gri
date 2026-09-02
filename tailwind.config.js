@@ -19,8 +19,9 @@ export default {
         }
       },
       fontFamily: {
-        serif: ['Georgia', 'serif'],
-        sans: ['"Segoe UI"', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+        serif: ['Cinzel', 'Georgia', 'serif'],
       }
     },
   },

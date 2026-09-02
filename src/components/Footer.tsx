@@ -3,7 +3,7 @@ import React from 'react';
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#241508] text-white pt-16 pb-8 px-[5%] text-sm border-t border-[#4d3016]">
-      <div className="max-w-6xl mx-auto border-b border-[#4d3016] pb-8 mb-8 flex flex-col md:flex-row justify-between items-center gap-8">
+      <div data-aos="fade-up" className="max-w-6xl mx-auto border-b border-[#4d3016] pb-8 mb-8 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left space-y-1.5">
           <h3 className="text-white text-lg font-bold uppercase tracking-wider mb-3 drop-shadow-xs">
             Gereja Rasuli Indonesia

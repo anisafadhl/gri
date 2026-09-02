@@ -36,12 +36,13 @@ export const Navbar: React.FC = () => {
   }, [location.pathname]);
 
   const navLinks = [
-    { label: 'Beranda', path: '/' },
+    { label: 'Home', path: '/' },
     { label: 'Events', path: '/events' },
     { label: 'Mission', path: '/mission' },
     { label: 'Services', path: '/services' },
     { label: 'Ministries', path: '/ministries' },
     { label: 'Campuses', path: '/campuses' },
+    { label: 'Gallery', path: '/gallery' },
     { label: 'Connect', path: '/connect' },
   ];
 
@@ -55,6 +56,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <nav
+        data-aos="fade-down"
         className="fixed top-0 left-0 w-full px-[5%] z-[1000] flex justify-between items-center transition-[padding] duration-200 ease-out"
         style={{
           backgroundColor: `rgba(46, 27, 10, ${bgOpacity})`,
@@ -78,7 +80,7 @@ export const Navbar: React.FC = () => {
             className="h-12 w-auto object-contain brightness-0 invert filter transition-all duration-300 group-hover:scale-105"
           />
           <span className="text-white drop-shadow-md font-bold tracking-widest text-2xl">
-            GRI
+            GRI Zion Filadelfia
           </span>
         </Link>
 

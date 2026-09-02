@@ -165,7 +165,7 @@ export const Admin: React.FC = () => {
       category: 'Kegiatan Umum',
       location: '',
       description: '',
-      image: '/event.png',
+      image: '',
     });
     setIsEventModalOpen(true);
   };
@@ -283,7 +283,7 @@ export const Admin: React.FC = () => {
       category: eventForm.category,
       location: eventForm.location,
       description: eventForm.description,
-      image: eventForm.image || '/event.png'
+      image: eventForm.image || ''
     };
 
     if (eventToEdit) {
@@ -475,24 +475,7 @@ export const Admin: React.FC = () => {
                           </div>
                         </div>
                       </div>
-                      <div>
-                        <label className="block text-sm font-semibold text-neutral-700 mb-1.5">Judul Banner</label>
-                        <input
-                          type="text"
-                          value={settings.hero_title || ''}
-                          onChange={(e) => handleSettingChange('hero_title', e.target.value)}
-                          className="w-full px-4 py-2.5 bg-white border border-neutral-200 rounded-lg outline-none focus:border-gold focus:ring-1 focus:ring-gold"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-semibold text-neutral-700 mb-1.5">Sub Judul Banner</label>
-                        <input
-                          type="text"
-                          value={settings.hero_subtitle || ''}
-                          onChange={(e) => handleSettingChange('hero_subtitle', e.target.value)}
-                          className="w-full px-4 py-2.5 bg-white border border-neutral-200 rounded-lg outline-none focus:border-gold focus:ring-1 focus:ring-gold"
-                        />
-                      </div>
+
                       <div>
                         <label className="block text-sm font-semibold text-neutral-700 mb-1.5">Kutipan Ayat</label>
                         <textarea
@@ -521,13 +504,15 @@ export const Admin: React.FC = () => {
                       Video Khotbah Terbaru
                     </h3>
                     <div className="space-y-4 bg-neutral-50 p-5 rounded-xl border border-neutral-100">
+
                       <div>
-                        <label className="block text-sm font-semibold text-neutral-700 mb-1.5">Judul Bagian Khotbah</label>
+                        <label className="block text-sm font-semibold text-neutral-700 mb-1.5">Nama Pembicara Khotbah</label>
                         <input
                           type="text"
-                          value={settings.sermon_title || ''}
-                          onChange={(e) => handleSettingChange('sermon_title', e.target.value)}
+                          value={settings.sermon_speaker || ''}
+                          onChange={(e) => handleSettingChange('sermon_speaker', e.target.value)}
                           className="w-full px-4 py-2.5 bg-white border border-neutral-200 rounded-lg outline-none focus:border-gold focus:ring-1 focus:ring-gold"
+                          placeholder="Ps. Besron Jusup Roni Marpaung"
                         />
                       </div>
                       <div>
@@ -577,8 +562,15 @@ export const Admin: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                   {events.map((ev) => (
                     <div key={ev.id} className="bg-white border border-neutral-200 rounded-2xl overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow group">
-                      <div className="h-40 bg-neutral-100 relative overflow-hidden">
-                        <img src={ev.image || '/event.png'} alt={ev.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <div className="h-40 bg-neutral-100 relative overflow-hidden flex items-center justify-center">
+                        {ev.image && ev.image.trim() !== '' && ev.image !== '/event.png' ? (
+                          <img src={ev.image} alt={ev.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        ) : (
+                          <div className="text-neutral-400 flex flex-col items-center">
+                            <Calendar className="w-8 h-8 mb-1 opacity-50" />
+                            <span className="text-xs font-medium">Tanpa Gambar</span>
+                          </div>
+                        )}
                         <div className="absolute top-2 right-2 bg-white/90 backdrop-blur text-xs font-bold px-2 py-1 rounded shadow-sm text-neutral-800">
                           {ev.category}
                         </div>
@@ -669,13 +661,18 @@ export const Admin: React.FC = () => {
               <div>
                 <label className="block text-sm font-semibold text-neutral-700 mb-1.5 flex items-center gap-2">
                   <ImageIcon className="w-4 h-4 text-neutral-500" />
-                  Gambar / Pamflet Acara
+                  Gambar / Pamflet Acara (Opsional)
                 </label>
                 
                 <div className="mt-2 flex items-center gap-4">
-                  {eventForm.image && (
-                    <div className="w-24 h-24 rounded-lg bg-neutral-100 overflow-hidden border border-neutral-200 shrink-0">
+                  {eventForm.image && eventForm.image !== '/event.png' && eventForm.image.trim() !== '' && (
+                    <div className="w-24 h-24 rounded-lg bg-neutral-100 overflow-hidden border border-neutral-200 shrink-0 relative group">
                       <img src={eventForm.image} alt="Preview" className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <button type="button" onClick={() => setEventForm({...eventForm, image: ''})} className="bg-red-500 text-white p-1.5 rounded-full hover:bg-red-600 shadow-sm" title="Hapus Gambar">
+                          <X className="w-4 h-4" />
+                        </button>
+                      </div>
                     </div>
                   )}
                   
@@ -691,7 +688,7 @@ export const Admin: React.FC = () => {
                         </>
                       )}
                     </label>
-                    <p className="text-xs text-neutral-500 mt-2">Mendukung file JPG, PNG, atau WEBP. Maksimum ukuran yang disarankan 2MB.</p>
+                    <p className="text-xs text-neutral-500 mt-2">Mendukung file JPG, PNG, atau WEBP. Jika dikosongkan, desain otomatis menyesuaikan tanpa gambar.</p>
                   </div>
                 </div>
               </div>

@@ -42,7 +42,7 @@ INSERT INTO public.site_settings (id, value, description) VALUES
 ('visi_desc', 'Menjadi keluarga rohani yang hidup, penuh kasih, dan dipenuhi kuasa Roh Kudus untuk mempersiapkan umat yang berkenan di hadapan Tuhan.', 'Deskripsi Visi Gereja'),
 ('misi_title', 'Membangun Komunitas Doa & Kebenaran', 'Judul Misi Gereja'),
 ('misi_desc', 'Membawa kasih karunia dan kebenaran Kristus ke setiap bangsa, memuridkan jiwa-jiwa, dan membangun jemaat yang berlandaskan doa, kebenaran firman, dan pengurapan Roh Kudus.', 'Deskripsi Misi Gereja'),
-('sermon_title', 'GRI Latest Sermon', 'Judul bagian khotbah terbaru'),
+('sermon_title', 'KITA ADALAH ANAK-ANAK PERJANJIAN', 'Judul bagian khotbah terbaru'),
 ('sermon_youtube_id', '3aEH4-tlua8', 'ID Video YouTube (Karakter acak di akhir URL video, misal: 3aEH4-tlua8 dari https://youtu.be/3aEH4-tlua8)')
 ON CONFLICT (id) DO UPDATE SET value = EXCLUDED.value, description = EXCLUDED.description;
 

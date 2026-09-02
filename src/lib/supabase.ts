@@ -48,7 +48,8 @@ const fallbackSettings: Record<string, string> = {
   visi_desc: 'Menjadi Keluarga rohani yang hidup, penuh kasih, dan dipenuhi kuasa Roh Kudus untuk mempersiapkan umat yang berkenan di hadapan Tuhan.',
   misi_title: 'Membangun Komunitas Doa & Kebenaran',
   misi_desc: 'Membawa kasih karunia dan kebenaran Kristus ke setiap bangsa, memuridkan jiwa-jiwa, dan membangun jemaat yang berlandaskan doa, kebenaran firman, dan pengurapan Roh Kudus.',
-  sermon_title: 'GRI Latest Sermon',
+  sermon_title: 'KITA ADALAH ANAK-ANAK PERJANJIAN',
+  sermon_speaker: 'Ps. Besron Jusup Roni Marpaung',
   sermon_youtube_id: '3aEH4-tlua8'
 };
 

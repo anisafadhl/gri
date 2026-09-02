@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -9,6 +11,7 @@ import { Services } from './pages/Services';
 import { Ministries } from './pages/Ministries';
 import { Campuses } from './pages/Campuses';
 import { Events } from './pages/Events';
+import { Gallery } from './pages/Gallery';
 import { Admin } from './pages/Admin';
 
 const ScrollToTop = () => {
@@ -41,6 +44,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 };
 
 export const App = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-cubic',
+      offset: 50,
+    });
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
@@ -52,6 +64,7 @@ export const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/ministries" element={<Ministries />} />
           <Route path="/campuses" element={<Campuses />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/connect" element={<Connect />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
