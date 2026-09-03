@@ -6,11 +6,12 @@ export const Footer: React.FC = () => {
       <div data-aos="fade-up" className="max-w-6xl mx-auto border-b border-[#4d3016] pb-8 mb-8 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left space-y-1.5">
           <h3 className="text-white text-lg font-bold uppercase tracking-wider mb-3 drop-shadow-xs">
-            Gereja Rasuli Indonesia
+            GRI Zion Filadelfia
           </h3>
-          <p className="text-white font-normal">Jl. Contoh No. 123, Jakarta Pusat 10110</p>
-          <p className="text-white font-normal">Email: info@gri.or.id</p>
-          <p className="text-white font-normal">Telp: (021) 1234-5678</p>
+          <p className="text-white font-normal">Ruko Mutiara Taman Palem Blok B10 No. 20
+Jl. Taman Mutiara Palem, Cengkareng, Jakarta Barat 11730</p>
+          <p className="text-white font-normal">Email: admin@grizfmfiladelfia.com</p>
+          <p className="text-white font-normal">Telp: (+62) 878 8252 0227</p>
         </div>
 
         {/* Social Media Icons */}
