@@ -46,11 +46,16 @@ export const Navbar: React.FC = () => {
   ];
 
   // Dynamic values based on scroll ratio
-  const bgOpacity = isOpen ? 0.96 : scrollProgress * 0.96;
-  const blurAmount = isOpen ? 12 : scrollProgress * 12;
-  const borderOpacity = isOpen ? 0.6 : scrollProgress * 0.6;
-  const shadowOpacity = isOpen ? 0.4 : scrollProgress * 0.4;
-  const pyPadding = isOpen ? 14 : Math.round(24 - scrollProgress * 10);
+  const isHome = location.pathname === '/';
+  
+  // If not on Home page, always show solid background so white text is visible against light page backgrounds
+  const effectiveScrollProgress = isHome ? scrollProgress : 1;
+  
+  const bgOpacity = isOpen ? 0.96 : effectiveScrollProgress * 0.96;
+  const blurAmount = isOpen ? 12 : effectiveScrollProgress * 12;
+  const borderOpacity = isOpen ? 0.6 : effectiveScrollProgress * 0.6;
+  const shadowOpacity = isOpen ? 0.4 : effectiveScrollProgress * 0.4;
+  const pyPadding = isOpen ? 14 : Math.round(24 - effectiveScrollProgress * 10);
 
   return (
     <>

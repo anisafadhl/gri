@@ -286,7 +286,7 @@ export const EventCarousel: React.FC = () => {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                         </div>
                       ) : (
-                        <div className="w-full h-72 sm:h-80 lg:h-[420px] rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#2E1B0A] via-[#241508] to-[#171717] p-6 sm:p-8 flex flex-col justify-between text-white relative overflow-hidden shadow-xl border border-white/5">
+                        <div className="w-full h-72 sm:h-80 lg:h-[420px] rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#FDFBF7] via-[#F8F5EE] to-[#F0EBE0] p-6 sm:p-8 flex flex-col justify-between text-[#2E1B0A] relative overflow-hidden shadow-xl border border-[#8E7015]/15">
                           {/* Ambient Gold Glow */}
                           <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#8E7015]/25 rounded-full blur-3xl pointer-events-none" />
 
