@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+﻿import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { VideoPlayer } from '../components/VideoPlayer';
 import { getSiteSettings, getEvents } from '../lib/supabase';
@@ -210,7 +210,7 @@ export const Home: React.FC = () => {
         id="beranda"
         className="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-center items-center text-center text-white px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden pt-20 sm:pt-24 md:pt-28"
         style={{
-          backgroundImage: `linear-gradient(180deg, rgba(15, 23, 42, 0.60) 0%, rgba(15, 23, 42, 0.85) 100%), url('${settings.hero_image || "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1920&q=80"}')`,
+          backgroundImage: `linear-gradient(180deg, rgba(46, 27, 10, 0.70) 0%, rgba(46, 27, 10, 0.90) 100%), url('${settings.hero_image || "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1920&q=80"}')`,
         }}
       >
         <div className="relative z-10 max-w-5xl mx-auto space-y-6 sm:space-y-7 pt-8 sm:pt-12 md:pt-16 pb-20 sm:pb-28">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useHeroImage } from '../hooks/useHeroImage';
 import { 
   Clock, 
   MapPin, 
@@ -167,6 +168,7 @@ const renderServiceIcon = (type: ServiceItem['iconType']) => {
 };
 
 export const Services: React.FC = () => {
+  const heroImage = useHeroImage();
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'general' | 'prayer' | 'youth'>('all');
 
   const filteredServices = SERVICES_DATA.filter((item) => {
@@ -181,7 +183,7 @@ export const Services: React.FC = () => {
       <section
         className="relative h-[48vh] min-h-[350px] flex flex-col justify-center items-center text-center text-white px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(180deg, rgba(15, 23, 42, 0.65) 0%, rgba(15, 23, 42, 0.85) 100%), url('/Gereja Rasuli Indonesia Jemaat Zion Filadelfia.png'), url('https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1920&q=80')`,
+          backgroundImage: `linear-gradient(180deg, rgba(46, 27, 10, 0.65) 0%, rgba(46, 27, 10, 0.85) 100%), url('${heroImage}')`,
         }}
       >
         <div className="relative z-10 max-w-4xl mx-auto space-y-4 pt-10">

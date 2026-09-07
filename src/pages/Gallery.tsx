@@ -1,13 +1,15 @@
 import React from 'react';
+import { useHeroImage } from '../hooks/useHeroImage';
 
 export const Gallery: React.FC = () => {
+  const heroImage = useHeroImage();
   return (
     <div className="w-full bg-[#fbf9f5] min-h-screen pb-20">
       {/* Banner */}
       <section
         className="h-[45vh] min-h-[320px] flex flex-col justify-center items-center text-center text-white px-[5%] bg-fixed bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.6)), url('/Gereja Rasuli Indonesia Jemaat Zion Filadelfia.png')`,
+          backgroundImage: `linear-gradient(180deg, rgba(46, 27, 10, 0.65) 0%, rgba(46, 27, 10, 0.85) 100%), url('${heroImage}')`,
         }}
       >
         <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-wider drop-shadow-md">

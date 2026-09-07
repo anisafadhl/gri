@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { submitContactMessage } from '../lib/supabase';
+import { useHeroImage } from '../hooks/useHeroImage';
 import {
   Compass,
   Users,
@@ -94,6 +95,7 @@ const FAQS_DATA: FaqItem[] = [
 ];
 
 export const Connect: React.FC = () => {
+  const heroImage = useHeroImage();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -181,7 +183,7 @@ export const Connect: React.FC = () => {
       <section
         className="relative h-[46vh] min-h-[350px] flex flex-col justify-center items-center text-center text-white px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(180deg, rgba(23, 15, 8, 0.72) 0%, rgba(36, 21, 8, 0.88) 100%), url('/Gereja Rasuli Indonesia Jemaat Zion Filadelfia.png'), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=80')`,
+          backgroundImage: `linear-gradient(180deg, rgba(46, 27, 10, 0.65) 0%, rgba(46, 27, 10, 0.85) 100%), url('${heroImage}')`,
         }}
       >
         <div className="relative z-10 max-w-4xl mx-auto space-y-4 pt-8">
@@ -630,16 +632,6 @@ export const Connect: React.FC = () => {
         </section>
 
       </main>
-
-      {/* Footer */}
-      <footer className="bg-[#241508] text-stone-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-white/5 mt-16 text-center text-xs">
-        <div className="max-w-7xl mx-auto space-y-2">
-          <p>&copy; 2026 Gereja Rasuli Indonesia Jemaat Zion Filadelfia. All rights reserved.</p>
-          <p className="text-[11px] text-stone-500">
-            Apostolic Community &bull; Prayer Altar &bull; One Big Family
-          </p>
-        </div>
-      </footer>
 
     </div>
   );

@@ -18,7 +18,7 @@ Jl. Taman Mutiara Palem, Cengkareng, Jakarta Barat 11730</p>
         <div className="flex gap-6 items-center">
           {/* Facebook */}
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/besron.yusuf"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -31,7 +31,7 @@ Jl. Taman Mutiara Palem, Cengkareng, Jakarta Barat 11730</p>
 
           {/* Instagram */}
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/bjrbesronjusuproni/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -44,7 +44,7 @@ Jl. Taman Mutiara Palem, Cengkareng, Jakarta Barat 11730</p>
 
           {/* YouTube */}
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com/@bjrbesronjusuproni"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube"
@@ -57,7 +57,7 @@ Jl. Taman Mutiara Palem, Cengkareng, Jakarta Barat 11730</p>
 
           {/* TikTok */}
           <a
-            href="https://tiktok.com"
+            href="https://www.tiktok.com/@bjrbesronjusuproni"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="TikTok"

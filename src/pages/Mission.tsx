@@ -1,6 +1,8 @@
 import React from 'react';
+import { useHeroImage } from '../hooks/useHeroImage';
 
 export const Mission: React.FC = () => {
+  const heroImage = useHeroImage();
   const values = [
     {
       title: 'Doa & Penyembahan',
@@ -25,7 +27,7 @@ export const Mission: React.FC = () => {
       <section
         className="h-[50vh] min-h-[350px] flex flex-col justify-center items-center text-center text-white px-[5%] bg-fixed bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), url('/Gereja Rasuli Indonesia Jemaat Zion Filadelfia.png')`,
+          backgroundImage: `linear-gradient(180deg, rgba(46, 27, 10, 0.65) 0%, rgba(46, 27, 10, 0.85) 100%), url('${heroImage}')`,
         }}
       >
         <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-wider">

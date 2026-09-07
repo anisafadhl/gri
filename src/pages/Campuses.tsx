@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Copy, Search, Check, ArrowRight, ExternalLink } from 'lucide-react';
+import { useHeroImage } from '../hooks/useHeroImage';
 
 interface ScheduleItem {
   name: string;
@@ -109,6 +110,7 @@ const campusesData: CampusLocation[] = [
 ];
 
 export const Campuses: React.FC = () => {
+  const heroImage = useHeroImage();
   const [activeTab, setActiveTab] = useState<'all' | 'jabodetabek' | 'jabar' | 'sulawesi' | 'online'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeMapId, setActiveMapId] = useState<string>('jkt');
@@ -155,7 +157,7 @@ export const Campuses: React.FC = () => {
       <section
         className="h-[45vh] min-h-[320px] flex flex-col justify-center items-center text-center text-white px-[5%] bg-fixed bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.6)), url('/Gereja Rasuli Indonesia Jemaat Zion Filadelfia.png')`,
+          backgroundImage: `linear-gradient(180deg, rgba(46, 27, 10, 0.65) 0%, rgba(46, 27, 10, 0.85) 100%), url('${heroImage}')`,
         }}
       >
         <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-wider drop-shadow-md">

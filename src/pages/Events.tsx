@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { getEvents } from '../lib/supabase';
 import { ArrowRight, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
+import { useHeroImage } from '../hooks/useHeroImage';
 
 export interface EventItem {
   id: string;
@@ -121,6 +122,7 @@ const FALLBACK_EVENTS: EventItem[] = [
 ];
 
 export const Events: React.FC = () => {
+  const heroImage = useHeroImage();
   // State dimulai dari array kosong dan loading = true agar TIDAK ada glitch flash data lama
   const [events, setEvents] = useState<EventItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -175,7 +177,7 @@ export const Events: React.FC = () => {
       <section
         className="relative h-[48vh] min-h-[350px] flex flex-col justify-center items-center text-center text-white px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(180deg, rgba(15, 23, 42, 0.65) 0%, rgba(15, 23, 42, 0.85) 100%), url('/Gereja Rasuli Indonesia Jemaat Zion Filadelfia.png'), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=80')`,
+          backgroundImage: `linear-gradient(180deg, rgba(46, 27, 10, 0.65) 0%, rgba(46, 27, 10, 0.85) 100%), url('${heroImage}')`,
         }}
       >
         <div className="relative z-10 max-w-4xl mx-auto space-y-4 pt-10">
@@ -404,14 +406,6 @@ export const Events: React.FC = () => {
         )}
 
       </main>
-
-      {}
-      <footer className="bg-[#241508] text-stone-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-white/5 mt-12 text-center text-xs">
-        <div className="max-w-7xl mx-auto space-y-2">
-          <p>&copy; 2026 Gereja Rasuli Indonesia Jemaat Zion Filadelfia. All rights reserved.</p>
-          <p className="text-[11px] text-stone-500">Apostolic Community &bull; Prayer Altar &bull; One Big Family</p>
-        </div>
-      </footer>
 
     </div>
   );
