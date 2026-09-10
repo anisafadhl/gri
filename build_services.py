@@ -1,7 +1,9 @@
-import React from 'react';
+﻿import codecs
+
+content = """import React from 'react';
 import { Link } from 'react-router-dom';
 import { useHeroImage } from '../hooks/useHeroImage';
-import { ArrowDown, Radio, MessageCircle, User } from 'lucide-react';
+import { ArrowDown, Radio, MessageCircle } from 'lucide-react';
 
 export const Services: React.FC = () => {
   const heroImage = useHeroImage();
@@ -60,7 +62,7 @@ export const Services: React.FC = () => {
     }
   ];
 
-  const FULL_SCHEDULE_DATA: Array<{ cityId: string, cityName: string, branchName: string, address: string, mapsUrl: string, services: Array<{ name: string, time: string }>, youthService?: { name: string, time: string, cpName: string, cpPhone: string, rawPhone: string }, cics: Array<{ name: string, leader: string, phone: string, badge?: string }> }> = [
+  const FULL_SCHEDULE_DATA = [
     {
       cityId: 'jakarta',
       cityName: 'JAKARTA BARAT',
@@ -291,25 +293,16 @@ export const Services: React.FC = () => {
                           <span className="text-[13px] font-bold text-[#8E7015]">{svc.time}</span>
                         </div>
                       ))}
-                      
                       {branch.youthService && (
-                        <div className="bg-[#FDFBF7] border border-[#EADDAC]/80 rounded-xl px-4 sm:px-5 py-4 flex flex-col shadow-xs mt-2">
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#EADDAC]/60 pb-3 mb-3">
-                            <div className="flex items-center gap-2.5">
-                              <div className="w-1.5 h-1.5 rounded-full bg-[#8E7015] shrink-0" />
-                              <span className="font-bold text-[14px] text-[#171717]">{branch.youthService.name}</span>
-                            </div>
-                            <span className="bg-[#F6F0DF] text-[#8E7015] px-3 py-1.5 rounded-full text-[11px] font-bold inline-block w-max">
-                              {branch.youthService.time.replace('Pk ', '')}
-                            </span>
+                        <div className="bg-[#FDFBF7] border border-[#EADDAC] rounded-xl overflow-hidden flex flex-col shadow-xs mt-4">
+                          <div className="px-4 sm:px-5 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EADDAC]/50">
+                            <span className="font-bold text-[14px] text-[#171717]">{branch.youthService.name}</span>
+                            <span className="text-[13px] font-bold text-[#8E7015]">{branch.youthService.time}</span>
                           </div>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2 text-stone-500">
-                              <User className="w-3.5 h-3.5" />
-                              <span className="text-[12px] font-medium">{branch.youthService.cpName.replace('Sdri. Nawang Wulansari', 'Sdri. Nawang')}</span>
-                            </div>
+                          <div className="px-4 sm:px-5 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-[#FDFBF7]/50">
+                            <span className="text-[12px] text-stone-500 font-medium">CP: {branch.youthService.cpName}</span>
                             <a href={`https://wa.me/${branch.youthService.rawPhone}`} target="_blank" rel="noopener noreferrer" className="text-[12px] font-bold text-[#8E7015] hover:text-[#A98721] flex items-center gap-1 transition-colors no-underline">
-                              Chat WA &rarr;
+                              {branch.youthService.cpPhone} &rarr;
                             </a>
                           </div>
                         </div>
@@ -324,28 +317,25 @@ export const Services: React.FC = () => {
                       <span className="text-[11px] font-bold text-stone-400">{branch.cics.length} Komunitas Aktif</span>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {branch.cics.map((cic, idx) => {
-                        const isLastOdd = idx === branch.cics.length - 1 && branch.cics.length % 2 !== 0;
-                        return (
-                          <div key={idx} className={`bg-[#FCFAF8] border border-stone-100 rounded-xl p-4 sm:p-5 hover:shadow-md transition-all duration-300 hover:border-[#8E7015]/20 group/cic flex ${isLastOdd ? 'sm:col-span-2 flex-col sm:flex-row sm:items-center sm:justify-between' : 'flex-col justify-between'}`}>
-                            <div className={`${isLastOdd ? 'mb-4 sm:mb-0' : 'mb-4'}`}>
-                              <div className="flex items-start justify-between gap-2">
-                                <span className="font-bold text-[14px] text-[#171717] leading-tight block">{cic.name}</span>
-                                {cic.badge && (
-                                  <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100 shrink-0">
-                                    {cic.badge}
-                                  </span>
-                                )}
-                              </div>
-                              <span className="text-[12px] text-stone-500 block mt-1.5 font-medium">Pimpinan: {cic.leader}</span>
+                      {branch.cics.map((cic, idx) => (
+                        <div key={idx} className="bg-[#FCFAF8] border border-stone-100 rounded-xl p-4 sm:p-5 flex flex-col justify-between hover:shadow-md transition-all duration-300 hover:border-[#8E7015]/20 group/cic">
+                          <div className="mb-5">
+                            <div className="flex items-start justify-between gap-2">
+                              <span className="font-bold text-[14px] text-[#171717] leading-tight block">{cic.name}</span>
+                              {cic.badge && (
+                                <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100 shrink-0">
+                                  {cic.badge}
+                                </span>
+                              )}
                             </div>
-                            <a href={`https://wa.me/${cic.phone}`} target="_blank" rel="noopener noreferrer" className={`group/btn mt-1 py-2.5 rounded-lg border border-stone-200 bg-white text-[12px] font-bold text-[#171717] hover:bg-[#8E7015] hover:border-[#8E7015] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 no-underline shadow-xs ${isLastOdd ? 'w-full sm:w-auto sm:px-6 sm:mt-0 shrink-0' : 'w-full'}`}>
-                              <MessageCircle className="w-4 h-4 text-[#8E7015] group-hover/btn:hidden transition-all" />
-                              <span className="transition-all">Hubungi CP Sekarang</span>
-                            </a>
+                            <span className="text-[12px] text-stone-500 block mt-1.5 font-medium">Pimpinan: {cic.leader}</span>
                           </div>
-                        );
-                      })}
+                          <a href={`https://wa.me/${cic.phone}`} target="_blank" rel="noopener noreferrer" className="w-full py-2.5 rounded-lg border border-stone-200 bg-white text-[12px] font-bold text-[#171717] hover:border-[#8E7015]/40 hover:text-[#8E7015] transition-colors flex items-center justify-center gap-2 no-underline shadow-xs group-hover/cic:shadow-sm">
+                            <MessageCircle className="w-4 h-4 text-stone-400 group-hover/cic:text-[#8E7015] transition-colors" />
+                            Hubungi CP Sekarang
+                          </a>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -395,5 +385,8 @@ export const Services: React.FC = () => {
 };
 
 export default Services;
+"""
 
-
+with codecs.open('src/pages/Services.tsx', 'w', 'utf-8') as f:
+    f.write(content)
+print("Done writing Services.tsx")

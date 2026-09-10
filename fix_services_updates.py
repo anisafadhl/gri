@@ -1,7 +1,9 @@
-import React from 'react';
+﻿import codecs
+
+content = """import React from 'react';
 import { Link } from 'react-router-dom';
 import { useHeroImage } from '../hooks/useHeroImage';
-import { ArrowDown, Radio, MessageCircle, User } from 'lucide-react';
+import { ArrowDown, Radio } from 'lucide-react';
 
 export const Services: React.FC = () => {
   const heroImage = useHeroImage();
@@ -293,23 +295,15 @@ export const Services: React.FC = () => {
                       ))}
                       
                       {branch.youthService && (
-                        <div className="bg-[#FDFBF7] border border-[#EADDAC]/80 rounded-xl px-4 sm:px-5 py-4 flex flex-col shadow-xs mt-2">
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#EADDAC]/60 pb-3 mb-3">
-                            <div className="flex items-center gap-2.5">
-                              <div className="w-1.5 h-1.5 rounded-full bg-[#8E7015] shrink-0" />
-                              <span className="font-bold text-[14px] text-[#171717]">{branch.youthService.name}</span>
-                            </div>
-                            <span className="bg-[#F6F0DF] text-[#8E7015] px-3 py-1.5 rounded-full text-[11px] font-bold inline-block w-max">
-                              {branch.youthService.time.replace('Pk ', '')}
-                            </span>
+                        <div className="bg-[#FCFAF8] border border-stone-100 rounded-xl px-4 sm:px-5 py-4 flex flex-col shadow-xs transition-colors hover:border-[#8E7015]/20">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-200/60 pb-3 mb-3">
+                            <span className="font-bold text-[14px] text-[#171717]">{branch.youthService.name}</span>
+                            <span className="text-[13px] font-bold text-[#8E7015]">{branch.youthService.time}</span>
                           </div>
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2 text-stone-500">
-                              <User className="w-3.5 h-3.5" />
-                              <span className="text-[12px] font-medium">{branch.youthService.cpName.replace('Sdri. Nawang Wulansari', 'Sdri. Nawang')}</span>
-                            </div>
-                            <a href={`https://wa.me/${branch.youthService.rawPhone}`} target="_blank" rel="noopener noreferrer" className="text-[12px] font-bold text-[#8E7015] hover:text-[#A98721] flex items-center gap-1 transition-colors no-underline">
-                              Chat WA &rarr;
+                            <span className="text-[12px] text-stone-500 font-medium">CP: {branch.youthService.cpName}</span>
+                            <a href={`https://wa.me/${branch.youthService.rawPhone}`} target="_blank" rel="noopener noreferrer" className="bg-[#8E7015] text-white text-[11px] font-bold px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 hover:bg-[#7A5F0F] transition-colors shadow-sm no-underline">
+                              Hubungi CP
                             </a>
                           </div>
                         </div>
@@ -327,8 +321,8 @@ export const Services: React.FC = () => {
                       {branch.cics.map((cic, idx) => {
                         const isLastOdd = idx === branch.cics.length - 1 && branch.cics.length % 2 !== 0;
                         return (
-                          <div key={idx} className={`bg-[#FCFAF8] border border-stone-100 rounded-xl p-4 sm:p-5 hover:shadow-md transition-all duration-300 hover:border-[#8E7015]/20 group/cic flex ${isLastOdd ? 'sm:col-span-2 flex-col sm:flex-row sm:items-center sm:justify-between' : 'flex-col justify-between'}`}>
-                            <div className={`${isLastOdd ? 'mb-4 sm:mb-0' : 'mb-4'}`}>
+                          <div key={idx} className={`bg-[#FCFAF8] border border-stone-100 rounded-xl p-4 sm:p-5 flex flex-col justify-between hover:shadow-md transition-all duration-300 hover:border-[#8E7015]/20 group/cic ${isLastOdd ? 'sm:col-span-2' : ''}`}>
+                            <div className="mb-4">
                               <div className="flex items-start justify-between gap-2">
                                 <span className="font-bold text-[14px] text-[#171717] leading-tight block">{cic.name}</span>
                                 {cic.badge && (
@@ -339,9 +333,8 @@ export const Services: React.FC = () => {
                               </div>
                               <span className="text-[12px] text-stone-500 block mt-1.5 font-medium">Pimpinan: {cic.leader}</span>
                             </div>
-                            <a href={`https://wa.me/${cic.phone}`} target="_blank" rel="noopener noreferrer" className={`group/btn mt-1 py-2.5 rounded-lg border border-stone-200 bg-white text-[12px] font-bold text-[#171717] hover:bg-[#8E7015] hover:border-[#8E7015] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 no-underline shadow-xs ${isLastOdd ? 'w-full sm:w-auto sm:px-6 sm:mt-0 shrink-0' : 'w-full'}`}>
-                              <MessageCircle className="w-4 h-4 text-[#8E7015] group-hover/btn:hidden transition-all" />
-                              <span className="transition-all">Hubungi CP Sekarang</span>
+                            <a href={`https://wa.me/${cic.phone}`} target="_blank" rel="noopener noreferrer" className="w-full mt-1 py-2.5 rounded-lg border border-stone-200 bg-white text-[12px] font-bold text-[#171717] hover:bg-[#8E7015] hover:border-[#8E7015] hover:text-white transition-all duration-300 flex items-center justify-center no-underline shadow-xs">
+                              Hubungi CP Sekarang
                             </a>
                           </div>
                         );
@@ -395,5 +388,8 @@ export const Services: React.FC = () => {
 };
 
 export default Services;
+"""
 
-
+with codecs.open('src/pages/Services.tsx', 'w', 'utf-8') as f:
+    f.write(content)
+print("Done writing Services.tsx")

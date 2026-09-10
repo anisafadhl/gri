@@ -1,5 +1,6 @@
 ﻿import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { BottomBanners } from '../components/BottomBanners';
 import { VideoPlayer } from '../components/VideoPlayer';
 import { getSiteSettings, getEvents } from '../lib/supabase';
 import { MapPin, ArrowRight, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
@@ -790,6 +791,10 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* 8. Giving Section (Persembahan) */}
+      <BottomBanners />
     </div>
+
   );
 };

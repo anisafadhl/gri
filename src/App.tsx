@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -13,6 +13,7 @@ import { Campuses } from './pages/Campuses';
 import { Events } from './pages/Events';
 import { Gallery } from './pages/Gallery';
 import { Admin } from './pages/Admin';
+import { Yayasan } from './pages/Yayasan';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -38,7 +39,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const isAdminRoute = location.pathname.startsWith('/admin');
 
   return (
-    <div className="font-sans text-neutral-900 bg-[#fbf9f5] min-h-screen flex flex-col">
+    <div className="font-sans text-neutral-900 bg-[#fbf9f5] min-h-screen flex flex-col overflow-x-hidden w-full relative">
       {!isAdminRoute && <Navbar />}
       <main className="flex-1">
         {children}
@@ -71,6 +72,7 @@ export const App = () => {
           <Route path="/campuses" element={<Campuses />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/connect" element={<Connect />} />
+          <Route path="/yayasan" element={<Yayasan />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </Layout>
@@ -79,3 +81,4 @@ export const App = () => {
 }
 
 export default App;
+
