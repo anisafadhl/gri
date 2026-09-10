@@ -39,7 +39,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const isAdminRoute = location.pathname.startsWith('/admin');
 
   return (
-    <div className="font-sans text-neutral-900 bg-[#fbf9f5] min-h-screen flex flex-col overflow-x-hidden w-full relative">
+    <div className="font-sans text-neutral-900 bg-[#fbf9f5] min-h-screen flex flex-col">
       {!isAdminRoute && <Navbar />}
       <main className="flex-1">
         {children}
