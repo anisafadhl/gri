@@ -3,17 +3,16 @@
 @tailwind utilities;
 
 @layer base {
-  html, body {
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
-  }
   html {
     scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
   }
   body {
+    overflow-x: clip;
     @apply bg-[#FBF9F5] text-[#171717] antialiased font-sans;
+  }
+  #root {
+    overflow-x: clip;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', sans-serif;
